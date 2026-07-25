@@ -1,0 +1,824 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sam Hinkie's Ghost — Dynasty Bylaws</title>
+    <style>
+      :root {
+        --bg: #f2f5f9;
+        --bg-raised: #ffffff;
+        --ink: #061a2e;
+        --ink-soft: #47586b;
+        --line: #d7dfe8;
+        --accent: #ed174c;
+        --accent-ink: #ffffff;
+        --ghost: #006bb6;
+        --ghost-soft: #e8f1fa;
+        --neg: #16233a;
+        --shadow: rgba(6, 26, 46, 0.08);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0a1929;
+          --bg-raised: #10233a;
+          --ink: #eaf1f8;
+          --ink-soft: #94a9c0;
+          --line: #253850;
+          --accent: #ff3d68;
+          --accent-ink: #0a1929;
+          --ghost: #4da8e0;
+          --ghost-soft: #16283d;
+          --neg: #6e85a6;
+          --shadow: rgba(0, 0, 0, 0.4);
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #0a1929;
+        --bg-raised: #10233a;
+        --ink: #eaf1f8;
+        --ink-soft: #94a9c0;
+        --line: #253850;
+        --accent: #ff3d68;
+        --accent-ink: #0a1929;
+        --ghost: #4da8e0;
+        --ghost-soft: #16283d;
+        --neg: #6e85a6;
+        --shadow: rgba(0, 0, 0, 0.4);
+      }
+      :root[data-theme="light"] {
+        --bg: #f2f5f9;
+        --bg-raised: #ffffff;
+        --ink: #061a2e;
+        --ink-soft: #47586b;
+        --line: #d7dfe8;
+        --accent: #ed174c;
+        --accent-ink: #ffffff;
+        --ghost: #006bb6;
+        --ghost-soft: #e8f1fa;
+        --neg: #16233a;
+        --shadow: rgba(6, 26, 46, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family:
+          "Iowan Old Style", "Palatino Linotype", Palatino, Georgia,
+          "Times New Roman", serif;
+        font-size: 17px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .label {
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.11em;
+        font-weight: 700;
+      }
+
+      a {
+        color: inherit;
+      }
+      a:focus-visible,
+      button:focus-visible,
+      summary:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+      }
+
+      /* ---------- Header ---------- */
+
+      header.hero {
+        padding: 4.5rem 1.5rem 3.5rem;
+        text-align: center;
+        border-bottom: 1px solid var(--line);
+        position: relative;
+        overflow: hidden;
+      }
+
+      header.hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 60% 45% at 50% 0%,
+          color-mix(in srgb, var(--accent) 10%, transparent),
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+
+      .eyebrow {
+        font-size: 0.72rem;
+        color: var(--ghost);
+        margin: 0 0 1rem;
+      }
+
+      h1.title {
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
+        font-weight: 800;
+        font-size: clamp(2.2rem, 6vw, 3.6rem);
+        letter-spacing: -0.01em;
+        margin: 0;
+        text-wrap: balance;
+        position: relative;
+      }
+
+      .title .ghost-word {
+        color: var(--accent);
+        font-style: italic;
+        font-family: "Iowan Old Style", Palatino, Georgia, serif;
+        font-weight: 400;
+      }
+
+      .subtitle {
+        margin: 1rem auto 0;
+        max-width: 40ch;
+        color: var(--ink-soft);
+        font-size: 1.05rem;
+      }
+
+      .tagline {
+        margin-top: 1.75rem;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        font-size: 0.78rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ghost);
+      }
+
+      /* ---------- Layout ---------- */
+
+      .layout {
+        max-width: 1080px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: 3rem;
+        padding: 3rem 1.5rem 6rem;
+      }
+
+      nav.toc {
+        position: sticky;
+        top: 2rem;
+        align-self: start;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+      }
+
+      nav.toc ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        border-left: 1px solid var(--line);
+      }
+
+      nav.toc li a {
+        display: block;
+        padding: 0.4rem 0 0.4rem 1rem;
+        margin-left: -1px;
+        border-left: 2px solid transparent;
+        text-decoration: none;
+        font-size: 0.85rem;
+        color: var(--ink-soft);
+        transition:
+          color 0.15s ease,
+          border-color 0.15s ease;
+      }
+
+      nav.toc li a:hover {
+        color: var(--ink);
+        border-left-color: var(--ghost);
+      }
+
+      nav.toc .roman {
+        color: var(--accent);
+        font-weight: 700;
+        margin-right: 0.4em;
+      }
+
+      main {
+        min-width: 0;
+      }
+
+      article.rule {
+        padding: 2.75rem 0;
+        border-bottom: 1px solid var(--line);
+        scroll-margin-top: 2rem;
+      }
+
+      article.rule:first-of-type {
+        padding-top: 0;
+      }
+      article.rule:last-of-type {
+        border-bottom: none;
+      }
+
+      .rule-head {
+        display: flex;
+        align-items: baseline;
+        gap: 0.9rem;
+        margin-bottom: 1.1rem;
+      }
+
+      .rule-num {
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        font-weight: 800;
+        color: var(--accent);
+        font-size: 0.95rem;
+        letter-spacing: 0.06em;
+      }
+
+      h2 {
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          sans-serif;
+        font-weight: 800;
+        font-size: 1.5rem;
+        margin: 0;
+        letter-spacing: -0.01em;
+      }
+
+      .rule p {
+        color: var(--ink);
+      }
+      .rule p.soft {
+        color: var(--ink-soft);
+      }
+
+      .callout {
+        background: var(--bg-raised);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 1.1rem 1.3rem;
+        margin: 1.2rem 0;
+        box-shadow: 0 1px 2px var(--shadow);
+      }
+
+      .callout .label {
+        display: block;
+        font-size: 0.68rem;
+        color: var(--ghost);
+        margin-bottom: 0.5rem;
+      }
+
+      .example {
+        border-left: 3px solid var(--accent);
+        padding-left: 1rem;
+        color: var(--ink-soft);
+        font-style: italic;
+        margin: 1.2rem 0;
+      }
+
+      /* ---------- Fact rows ---------- */
+
+      dl.facts {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 0.6rem 1.5rem;
+        margin: 1.4rem 0;
+        padding: 0;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        font-size: 0.95rem;
+      }
+
+      dl.facts dt {
+        color: var(--ghost);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.72rem;
+        white-space: nowrap;
+        padding-top: 0.15rem;
+      }
+
+      dl.facts dd {
+        margin: 0;
+        color: var(--ink);
+      }
+
+      /* ---------- Roster grid ---------- */
+
+      .roster {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+        gap: 0.6rem;
+        margin: 1.5rem 0;
+      }
+
+      .slot {
+        background: var(--bg-raised);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 0.85rem 0.6rem;
+        text-align: center;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+      }
+
+      .slot .count {
+        display: block;
+        font-size: 1.5rem;
+        font-weight: 800;
+        font-variant-numeric: tabular-nums;
+        color: var(--ink);
+      }
+
+      .slot .name {
+        display: block;
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--ghost);
+        margin-top: 0.2rem;
+      }
+
+      .slot.accent {
+        border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+      }
+      .slot.accent .count {
+        color: var(--accent);
+      }
+
+      /* ---------- Lock-in diagram ---------- */
+
+      .week-strip {
+        display: flex;
+        gap: 0.4rem;
+        margin: 1.5rem 0;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+      }
+
+      .day {
+        flex: 1;
+        text-align: center;
+        padding: 0.7rem 0.2rem;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+        background: var(--bg-raised);
+      }
+
+      .day .d {
+        display: block;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--ghost);
+      }
+
+      .day .g {
+        display: block;
+        font-size: 0.78rem;
+        margin-top: 0.3rem;
+        color: var(--ink-soft);
+      }
+
+      .day.locked {
+        background: color-mix(in srgb, var(--accent) 14%, var(--bg-raised));
+        border-color: var(--accent);
+      }
+
+      .day.locked .g {
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      .day.skip .g {
+        text-decoration: line-through;
+        opacity: 0.5;
+      }
+
+      /* ---------- Scoring grid ---------- */
+
+      .scoring {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 0.6rem;
+        margin: 1.5rem 0;
+      }
+
+      .stat {
+        background: var(--bg-raised);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 0.8rem 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+      }
+
+      .stat .name {
+        font-size: 0.82rem;
+        color: var(--ink-soft);
+      }
+
+      .stat .val {
+        font-weight: 800;
+        font-variant-numeric: tabular-nums;
+        font-size: 1rem;
+        color: var(--ink);
+      }
+
+      .stat.pos .val {
+        color: var(--accent);
+      }
+      .stat.neg .val {
+        color: var(--neg);
+      }
+
+      /* ---------- Playoff format cards ---------- */
+
+      .decision-flag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--ghost);
+        border: 1px dashed var(--ghost);
+        border-radius: 999px;
+        padding: 0.25rem 0.7rem;
+        margin-bottom: 1rem;
+      }
+
+      .formats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 1rem;
+        margin: 1.2rem 0;
+      }
+
+      .format-card {
+        background: var(--bg-raised);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 1.2rem 1.3rem;
+      }
+
+      .format-card h3 {
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        font-size: 0.95rem;
+        margin: 0 0 0.5rem;
+      }
+
+      .format-card p {
+        margin: 0;
+        font-size: 0.9rem;
+        color: var(--ink-soft);
+      }
+
+      /* ---------- Footer ---------- */
+
+      footer {
+        text-align: center;
+        padding: 2.5rem 1.5rem 3.5rem;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        font-size: 0.78rem;
+        color: var(--ghost);
+      }
+
+      /* ---------- Responsive ---------- */
+
+      @media (max-width: 860px) {
+        .layout {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+        nav.toc {
+          position: static;
+          overflow-x: auto;
+          padding-bottom: 0.5rem;
+        }
+        nav.toc ol {
+          display: flex;
+          border-left: none;
+          border-bottom: 1px solid var(--line);
+          gap: 0.25rem;
+          white-space: nowrap;
+        }
+        nav.toc li a {
+          border-left: none;
+          border-bottom: 2px solid transparent;
+          padding: 0.4rem 0.7rem;
+        }
+        nav.toc li a:hover {
+          border-bottom-color: var(--ghost);
+        }
+        dl.facts {
+          grid-template-columns: 1fr;
+        }
+        dl.facts dt {
+          margin-top: 0.4rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <p class="eyebrow label">Est. by managers who trust the process</p>
+      <h1 class="title">Sam Hinkie's <span class="ghost-word">Ghost</span></h1>
+      <p class="subtitle">
+        Official dynasty bylaws — buy-in, draft order, roster construction, and
+        scoring for the league that never rebuilds the same way twice.
+      </p>
+      <p class="tagline">Process compliant · patience mandatory</p>
+    </header>
+
+    <div class="layout">
+      <nav class="toc" aria-label="Table of contents">
+        <ol>
+          <li>
+            <a href="#buyin"
+              ><span class="roman">I.</span>Buy-In &amp; Commitment</a
+            >
+          </li>
+          <li>
+            <a href="#draft"><span class="roman">II.</span>The Draft</a>
+          </li>
+          <li>
+            <a href="#roster"><span class="roman">III.</span>Roster</a>
+          </li>
+          <li>
+            <a href="#lockin"><span class="roman">IV.</span>Weekly Scoring</a>
+          </li>
+          <li>
+            <a href="#points"><span class="roman">V.</span>Scoring System</a>
+          </li>
+          <li>
+            <a href="#waivers"><span class="roman">VI.</span>Waivers</a>
+          </li>
+          <li>
+            <a href="#deadline"
+              ><span class="roman">VII.</span>Trade Deadline</a
+            >
+          </li>
+          <li>
+            <a href="#playoffs"><span class="roman">VIII.</span>Playoffs</a>
+          </li>
+        </ol>
+      </nav>
+
+      <main>
+        <article class="rule" id="buyin">
+          <div class="rule-head">
+            <span class="rule-num">ARTICLE I</span>
+            <h2>Buy-In &amp; Commitment</h2>
+          </div>
+
+          <dl class="facts">
+            <dt>Annual Fee</dt>
+            <dd>$10 per manager, per year</dd>
+            <dt>Billing</dt>
+            <dd>
+              Paid two years at a time ($20 due at the start of every two-year
+              cycle)
+            </dd>
+          </dl>
+
+          <p>
+            If a manager wants to leave the league but has traded away future
+            draft picks, they must still pay the buy-in for every season those
+            picks cover — even after their two-year commitment ends.
+          </p>
+
+          <div class="example">
+            Example: You traded your 2027 and 2028 first-round picks, then
+            decide to leave after your first two years are up. You still owe the
+            $10 buy-in for both 2027 and 2028, since another manager is holding
+            your equity in those drafts.
+          </div>
+        </article>
+
+        <article class="rule" id="draft">
+          <div class="rule-head">
+            <span class="rule-num">ARTICLE II</span>
+            <h2>The Draft</h2>
+          </div>
+          <p>
+            The off-season draft runs in order of finish from the prior regular
+            season, worst record to best. The last-place team picks first; the
+            top regular-season finisher picks last.
+          </p>
+          <p class="soft">Tanking is, as always, a legitimate strategy.</p>
+        </article>
+
+        <article class="rule" id="roster">
+          <div class="rule-head">
+            <span class="rule-num">ARTICLE III</span>
+            <h2>Roster Construction</h2>
+          </div>
+          <p>
+            Standard basketball starting five, plus flex, bench, taxi, and
+            injured reserve.
+          </p>
+
+          <div class="roster">
+            <div class="slot accent">
+              <span class="count">5</span><span class="name">Starters</span>
+            </div>
+            <div class="slot accent">
+              <span class="count">2</span><span class="name">Utility</span>
+            </div>
+            <div class="slot">
+              <span class="count">6</span><span class="name">Bench</span>
+            </div>
+            <div class="slot">
+              <span class="count">4</span><span class="name">Taxi</span>
+            </div>
+            <div class="slot">
+              <span class="count">2</span><span class="name">IR</span>
+            </div>
+          </div>
+
+          <div class="callout">
+            <span class="label">Taxi squad</span>
+            First- and second-year players can be stashed here rather than on
+            the active roster. Taxi assignments must be locked in before each
+            season starts.
+          </div>
+        </article>
+
+        <article class="rule" id="lockin">
+          <div class="rule-head">
+            <span class="rule-num">ARTICLE IV</span>
+            <h2>Weekly Scoring — Lock-In</h2>
+          </div>
+          <p>
+            We use Sleeper's default <strong>Lock-In</strong> format, not daily
+            lineups. Each starter gets exactly
+            <strong>one game per week</strong> counted toward your total — you
+            choose which one.
+          </p>
+
+          <p class="soft">
+            If Jokić drops 50 on Tuesday, lock it in and his remaining games
+            that week no longer affect your score. If Tuesday's a dud, skip it
+            and wait for a better outing later in the week.
+          </p>
+
+          <div class="week-strip">
+            <div class="day">
+              <span class="d">Mon</span><span class="g">—</span>
+            </div>
+            <div class="day locked">
+              <span class="d">Tue</span><span class="g">Locked</span>
+            </div>
+            <div class="day skip">
+              <span class="d">Wed</span><span class="g">Plays</span>
+            </div>
+            <div class="day">
+              <span class="d">Thu</span><span class="g">—</span>
+            </div>
+            <div class="day skip">
+              <span class="d">Fri</span><span class="g">Plays</span>
+            </div>
+            <div class="day">
+              <span class="d">Sat</span><span class="g">—</span>
+            </div>
+            <div class="day">
+              <span class="d">Sun</span><span class="g">—</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="rule" id="points">
+          <div class="rule-head">
+            <span class="rule-num">ARTICLE V</span>
+            <h2>Scoring System</h2>
+          </div>
+          <p class="soft">
+            Sleeper default — subject to league vote if we ever want to change
+            it.
+          </p>
+
+          <div class="scoring">
+            <div class="stat pos">
+              <span class="name">Point</span><span class="val">+0.5</span>
+            </div>
+            <div class="stat pos">
+              <span class="name">Rebound</span><span class="val">+1</span>
+            </div>
+            <div class="stat pos">
+              <span class="name">Assist</span><span class="val">+1</span>
+            </div>
+            <div class="stat pos">
+              <span class="name">Steal</span><span class="val">+2</span>
+            </div>
+            <div class="stat pos">
+              <span class="name">Block</span><span class="val">+2</span>
+            </div>
+            <div class="stat pos">
+              <span class="name">3PT Made</span><span class="val">+0.5</span>
+            </div>
+            <div class="stat pos">
+              <span class="name">Double-Double</span><span class="val">+2</span>
+            </div>
+            <div class="stat pos">
+              <span class="name">Triple-Double</span><span class="val">+2</span>
+            </div>
+            <div class="stat pos">
+              <span class="name">40+ Points</span><span class="val">+2</span>
+            </div>
+            <div class="stat pos">
+              <span class="name">50+ Points</span><span class="val">+2</span>
+            </div>
+            <div class="stat neg">
+              <span class="name">Turnover</span><span class="val">−1</span>
+            </div>
+            <div class="stat neg">
+              <span class="name">Technical</span><span class="val">−2</span>
+            </div>
+            <div class="stat neg">
+              <span class="name">Flagrant</span><span class="val">−2</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="rule" id="waivers">
+          <div class="rule-head">
+            <span class="rule-num">ARTICLE VI</span>
+            <h2>Waivers</h2>
+          </div>
+          <dl class="facts">
+            <dt>Type</dt>
+            <dd>FAAB bidding</dd>
+            <dt>Budget</dt>
+            <dd>$100 per season</dd>
+            <dt>Clearing</dt>
+            <dd>Waivers process every Tuesday</dd>
+            <dt>Availability</dt>
+            <dd>
+              A dropped player can't be added by anyone until 2 days after the
+              drop
+            </dd>
+          </dl>
+        </article>
+
+        <article class="rule" id="deadline">
+          <div class="rule-head">
+            <span class="rule-num">ARTICLE VII</span>
+            <h2>Trade Deadline</h2>
+          </div>
+          <p>
+            Trading closes <strong>one week before playoffs begin</strong>.
+            Every deal must be final before that cutoff.
+          </p>
+        </article>
+
+        <article class="rule" id="playoffs">
+          <div class="rule-head">
+            <span class="rule-num">ARTICLE VIII</span>
+            <h2>Playoffs</h2>
+          </div>
+
+          <span class="decision-flag">Current Format</span>
+
+          <div class="formats">
+            <div class="format-card">
+              <h3>Top 8 Overall</h3>
+              <p>
+                No divisions. The 8 best records league-wide make the playoffs,
+                regardless of grouping.
+              </p>
+            </div>
+          </div>
+        </article>
+      </main>
+    </div>
+
+    <footer>
+      Sam Hinkie's Ghost Dynasty League — bylaws subject to amendment by vote.
+    </footer>
+  </body>
+</html>
