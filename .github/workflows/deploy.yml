@@ -32,4 +32,4 @@ jobs:
           rsync -avz --delete \
             --exclude='.git' \
             --exclude='.github' \
-            ./ "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}"
+            ./ "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:"
