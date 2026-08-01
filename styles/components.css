@@ -1,0 +1,283 @@
+/* Reusable blocks inside an article: callouts, fact lists, cards, diagrams. */
+
+.callout {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding-block: 1.1rem;
+  padding-inline: 1.3rem;
+  margin-block: 1.2rem;
+  box-shadow: 0 1px 2px var(--shadow);
+
+  .label {
+    display: block;
+    font-size: var(--text-micro);
+    color: var(--ghost);
+    margin-block-end: 0.5rem;
+  }
+}
+
+.example {
+  border-inline-start: 3px solid var(--accent);
+  padding-inline-start: 1rem;
+  margin-block: 1.2rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+/* ---------- Fact rows ---------- */
+
+.facts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-block: 1.4rem;
+  padding: 0;
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+
+  dt {
+    color: var(--ghost);
+    font-weight: 700;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+
+    &:not(:first-of-type) {
+      margin-block-start: 0.75rem;
+    }
+  }
+
+  dd {
+    margin: 0;
+    color: var(--ink);
+  }
+
+  @container content (min-width: 34rem) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 0.6rem;
+    column-gap: 1.5rem;
+
+    dt {
+      flex: 0 0 6.5rem;
+      padding-block-start: 0.15rem;
+      white-space: nowrap;
+
+      &:not(:first-of-type) {
+        margin-block-start: 0;
+      }
+    }
+
+    /* Basis wide enough that the next term is forced onto a new row. */
+    dd {
+      flex: 1 1 calc(100% - 9.5rem);
+    }
+  }
+}
+
+/* ---------- Roster slots ---------- */
+
+.roster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-block: 1.5rem;
+}
+
+/* Fixed fractional widths keep wrapped slots aligned in columns. */
+.slot {
+  flex: 0 1 calc(100% / 3 - 0.4rem);
+  min-inline-size: 0;
+  background: var(--bg-raised);
+
+  @container content (min-width: 24.5rem) {
+    flex-basis: calc(25% - 0.45rem);
+  }
+
+  @container content (min-width: 30.5rem) {
+    flex-basis: calc(20% - 0.48rem);
+  }
+
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding-block: 0.85rem;
+  padding-inline: 0.6rem;
+  text-align: center;
+  font-family: var(--font-ui);
+
+  .count {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+  }
+
+  .name {
+    display: block;
+    font-size: var(--text-micro);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ghost);
+    margin-block-start: 0.2rem;
+  }
+
+  &.accent {
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+
+    .count {
+      color: var(--accent);
+    }
+  }
+}
+
+/* ---------- Lock-in week strip ---------- */
+
+.week-strip {
+  display: flex;
+  gap: 0.4rem;
+  margin-block: 1.5rem;
+  font-family: var(--font-ui);
+}
+
+.day {
+  flex: 1;
+  text-align: center;
+  padding-block: 0.7rem;
+  padding-inline: 0.2rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--bg-raised);
+
+  .d {
+    display: block;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ghost);
+  }
+
+  .g {
+    display: block;
+    font-size: 0.78rem;
+    margin-block-start: 0.3rem;
+    color: var(--ink-soft);
+  }
+
+  &.locked {
+    background: color-mix(in srgb, var(--accent) 14%, var(--bg-raised));
+    border-color: var(--accent);
+
+    .g {
+      color: var(--accent);
+      font-weight: 700;
+    }
+  }
+
+  &.skip .g {
+    text-decoration: line-through;
+    opacity: 0.5;
+  }
+}
+
+/* ---------- Scoring tiles ---------- */
+
+.scoring {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-block: 1.5rem;
+}
+
+.stat {
+  flex: 0 1 calc(50% - 0.3rem);
+  min-inline-size: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-raised);
+
+  @container content (min-width: 27.5rem) {
+    flex-basis: calc(100% / 3 - 0.4rem);
+  }
+
+  @container content (min-width: 36.8rem) {
+    flex-basis: calc(25% - 0.45rem);
+  }
+
+  @container content (min-width: 46.2rem) {
+    flex-basis: calc(20% - 0.48rem);
+  }
+
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding-block: 0.8rem;
+  padding-inline: 1rem;
+  font-family: var(--font-ui);
+
+  .name {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+
+  .val {
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    font-size: 1rem;
+    color: var(--ink);
+  }
+
+  &.pos .val {
+    color: var(--accent);
+  }
+
+  &.neg .val {
+    color: var(--neg);
+  }
+}
+
+/* ---------- Playoff formats ---------- */
+
+.decision-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-ui);
+  font-size: var(--text-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ghost);
+  border: 1px dashed var(--ghost);
+  border-radius: var(--radius-pill);
+  padding-block: 0.25rem;
+  padding-inline: 0.7rem;
+  margin-block-end: 1rem;
+}
+
+.formats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-block: 1.2rem;
+}
+
+.format-card {
+  flex: 1 1 14.375rem;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding-block: 1.2rem;
+  padding-inline: 1.3rem;
+
+  h3 {
+    font-size: 0.95rem;
+    margin-block-end: 0.5rem;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+}

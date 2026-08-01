@@ -1,0 +1,43 @@
+/* Design tokens — colors, typography, spacing, radii. */
+
+:root {
+  color-scheme: light dark;
+
+  /* Palette — light value first, dark value second. */
+  --bg: light-dark(#f2f5f9, #0a1929);
+  --bg-raised: light-dark(#ffffff, #10233a);
+  --ink: light-dark(#061a2e, #eaf1f8);
+  --ink-soft: light-dark(#47586b, #94a9c0);
+  --line: light-dark(#d7dfe8, #253850);
+  --accent: light-dark(#ed174c, #ff3d68);
+  --accent-ink: light-dark(#ffffff, #0a1929);
+  --ghost: light-dark(#006bb6, #4da8e0);
+  --ghost-soft: light-dark(#e8f1fa, #16283d);
+  --neg: light-dark(#16233a, #6e85a6);
+  --shadow: light-dark(rgb(6 26 46 / 0.08), rgb(0 0 0 / 0.4));
+
+  /* Typography */
+  --font-body:
+    "Iowan Old Style", "Palatino Linotype", Palatino, Georgia,
+    "Times New Roman", serif;
+  --font-ui: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --text-micro: 0.68rem;
+  --text-small: 0.85rem;
+  --text-base: 1.0625rem;
+
+  /* Spacing & shape */
+  --gutter: 1.5rem;
+  --measure: 67.5rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.625rem;
+  --radius-pill: 999px;
+}
+
+/* Explicit theme choice overrides the OS preference. */
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}

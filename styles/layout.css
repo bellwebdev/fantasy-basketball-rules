@@ -1,0 +1,201 @@
+/* Page frame: hero, sidebar + article column, footer. Mobile-first, Flexbox only. */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: 4.5rem 3.5rem;
+  padding-inline: var(--gutter);
+  text-align: center;
+  border-block-end: 1px solid var(--line);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse 60% 45% at 50% 0%,
+      color-mix(in srgb, var(--accent) 10%, transparent),
+      transparent 70%
+    );
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    color: var(--ghost);
+    margin-block: 0 1rem;
+  }
+
+  .title {
+    position: relative;
+    font-weight: 800;
+    font-size: clamp(2.2rem, 6vw, 3.6rem);
+    text-wrap: balance;
+
+    .ghost-word {
+      color: var(--accent);
+      font-family: var(--font-body);
+      font-style: italic;
+      font-weight: 400;
+    }
+  }
+
+  .subtitle {
+    margin-block-start: 1rem;
+    margin-inline: auto;
+    max-inline-size: 40ch;
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+  }
+
+  .tagline {
+    margin-block-start: 1.75rem;
+    font-family: var(--font-ui);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ghost);
+  }
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gutter);
+  max-inline-size: var(--measure);
+  margin-inline: auto;
+  padding-block: 3rem 6rem;
+  padding-inline: var(--gutter);
+
+  @media (min-width: 54rem) {
+    flex-direction: row;
+    gap: 3rem;
+  }
+}
+
+/* Horizontal scroller on small screens, sticky rail from 54rem up. */
+.toc {
+  font-family: var(--font-ui);
+  overflow-x: auto;
+  padding-block-end: 0.5rem;
+
+  ol {
+    display: flex;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    border-block-end: 1px solid var(--line);
+  }
+
+  a {
+    display: block;
+    padding-block: 0.4rem;
+    padding-inline: 0.7rem;
+    text-decoration: none;
+    font-size: var(--text-small);
+    color: var(--ink-soft);
+    border-block-end: 2px solid transparent;
+    transition:
+      color 0.15s ease,
+      border-color 0.15s ease;
+
+    &:hover {
+      color: var(--ink);
+      border-block-end-color: var(--ghost);
+    }
+  }
+
+  .roman {
+    color: var(--accent);
+    font-weight: 700;
+    margin-inline-end: 0.4em;
+  }
+
+  @media (min-width: 54rem) {
+    flex: 0 0 13.75rem;
+    position: sticky;
+    inset-block-start: 2rem;
+    align-self: start;
+    overflow: visible;
+    padding-block-end: 0;
+
+    ol {
+      flex-direction: column;
+      gap: 0;
+      white-space: normal;
+      border-block-end: none;
+      border-inline-start: 1px solid var(--line);
+    }
+
+    a {
+      padding-inline: 1rem 0;
+      margin-inline-start: -1px;
+      border-block-end: none;
+      border-inline-start: 2px solid transparent;
+
+      &:hover {
+        border-inline-start-color: var(--ghost);
+      }
+    }
+  }
+}
+
+/* Named container so article components size to this column, not the viewport. */
+main {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  container: content / inline-size;
+}
+
+.rule {
+  padding-block: 2.75rem;
+  border-block-end: 1px solid var(--line);
+  scroll-margin-block-start: 2rem;
+
+  &:first-of-type {
+    padding-block-start: 0;
+  }
+
+  &:last-of-type {
+    border-block-end: none;
+  }
+
+  p {
+    color: var(--ink);
+
+    &.soft {
+      color: var(--ink-soft);
+    }
+  }
+}
+
+.rule-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  margin-block-end: 1.1rem;
+
+  h2 {
+    font-weight: 800;
+    font-size: 1.5rem;
+  }
+}
+
+.rule-num {
+  font-family: var(--font-ui);
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+
+footer {
+  text-align: center;
+  padding-block: 2.5rem 3.5rem;
+  padding-inline: var(--gutter);
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--ghost);
+}
