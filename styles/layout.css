@@ -56,6 +56,19 @@
     text-transform: uppercase;
     color: var(--ghost);
   }
+
+  .hero-link {
+    text-decoration: none;
+    border-block-end: 1px solid
+      color-mix(in srgb, currentColor 40%, transparent);
+    padding-block-end: 0.2rem;
+    transition: color 0.15s ease, border-color 0.15s ease;
+
+    &:hover {
+      color: var(--accent);
+      border-block-end-color: currentColor;
+    }
+  }
 }
 
 .layout {

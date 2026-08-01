@@ -1,0 +1,212 @@
+/* Pending-amendments page: proposal cards, before/after comparison, tallies. */
+
+.callout.intro {
+  margin-block: 0 2rem;
+}
+
+/* ---------- Headline tallies ---------- */
+
+.summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-block-end: 2.5rem;
+}
+
+.tally {
+  flex: 1 1 7rem;
+  min-inline-size: 0;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding-block: 0.85rem;
+  padding-inline: 0.6rem;
+  text-align: center;
+  font-family: var(--font-ui);
+
+  .count {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+  }
+
+  .name {
+    display: block;
+    font-size: var(--text-micro);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ghost);
+    margin-block-start: 0.2rem;
+  }
+
+  &.accent {
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+
+    .count {
+      color: var(--accent);
+    }
+  }
+}
+
+/* ---------- Proposal cards ---------- */
+
+.proposal {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding-block: 1.4rem;
+  padding-inline: 1.4rem;
+  margin-block-start: 1.2rem;
+  box-shadow: 0 1px 2px var(--shadow);
+
+  p {
+    margin-block: 0 0.9rem;
+
+    &:last-child {
+      margin-block-end: 0;
+    }
+  }
+}
+
+.proposal-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.7rem;
+  margin-block-end: 0.8rem;
+
+  h3 {
+    flex: 1 1 12rem;
+    font-size: 1.1rem;
+    font-weight: 800;
+  }
+}
+
+.proposal-num {
+  font-family: var(--font-ui);
+  font-weight: 800;
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+
+.pending {
+  font-family: var(--font-ui);
+  font-size: var(--text-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ghost);
+  border: 1px dashed var(--ghost);
+  border-radius: var(--radius-pill);
+  padding-block: 0.2rem;
+  padding-inline: 0.6rem;
+  white-space: nowrap;
+}
+
+/* ---------- Current vs. proposed ---------- */
+
+.compare {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-block: 1.1rem;
+
+  @container content (min-width: 30rem) {
+    flex-direction: row;
+    align-items: stretch;
+  }
+}
+
+.side {
+  flex: 1 1 0;
+  min-inline-size: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding-block: 0.8rem;
+  padding-inline: 1rem;
+  font-family: var(--font-ui);
+
+  .label {
+    display: block;
+    font-size: var(--text-micro);
+    color: var(--ink-soft);
+    margin-block-end: 0.35rem;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.92rem;
+  }
+
+  /* Scoring tiles borrowed from the bylaws page stack inside this column. */
+  .scoring {
+    margin-block: 0.5rem 0;
+    gap: 0.4rem;
+
+    .stat {
+      flex: 1 1 100%;
+      padding-block: 0.5rem;
+      padding-inline: 0.7rem;
+    }
+  }
+
+  &.now {
+    background: color-mix(in srgb, var(--ink) 3%, transparent);
+
+    p {
+      color: var(--ink-soft);
+    }
+  }
+
+  &.next {
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+    background: color-mix(in srgb, var(--accent) 6%, transparent);
+
+    .label {
+      color: var(--accent);
+    }
+
+    p {
+      color: var(--ink);
+      font-weight: 600;
+    }
+  }
+}
+
+/* ---------- Card footnotes ---------- */
+
+.note {
+  border-inline-start: 3px solid var(--ghost);
+  padding-inline-start: 0.9rem;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  font-style: italic;
+}
+
+.amends {
+  font-family: var(--font-ui);
+  font-size: var(--text-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ghost);
+
+  a {
+    text-decoration-color: color-mix(in srgb, var(--ghost) 45%, transparent);
+    text-underline-offset: 0.25em;
+  }
+}
+
+/* ---------- Scroll-spy state on the category rail ---------- */
+
+.toc a.current {
+  color: var(--ink);
+  border-block-end-color: var(--accent);
+
+  @media (min-width: 54rem) {
+    border-block-end-color: transparent;
+    border-inline-start-color: var(--accent);
+  }
+}

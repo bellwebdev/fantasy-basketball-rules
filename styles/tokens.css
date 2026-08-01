@@ -1,9 +1,9 @@
-/* Design tokens — colors, typography, spacing, radii. */
+/* Design tokens: colors, typography, spacing, radii. */
 
 :root {
   color-scheme: light dark;
 
-  /* Palette — light value first, dark value second. */
+  /* Palette: light value first, dark value second. */
   --bg: light-dark(#f2f5f9, #0a1929);
   --bg-raised: light-dark(#ffffff, #10233a);
   --ink: light-dark(#061a2e, #eaf1f8);
