@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pending Amendments | Sam Hinkie's Ghost</title>
+    <meta
+      name="description"
+      content="Rule modifications proposed by league members, pending a vote."
+    />
+    <link rel="stylesheet" href="../styles/tokens.css" />
+    <link rel="stylesheet" href="../styles/base.css" />
+    <link rel="stylesheet" href="../styles/layout.css" />
+    <link rel="stylesheet" href="../styles/components.css" />
+    <link rel="stylesheet" href="../styles/votes.css" />
+    <script type="module" src="../scripts/votes.js"></script>
+  </head>
+  <body>
+    <header class="hero">
+      <p class="eyebrow label">Nothing here is in effect yet</p>
+      <h1 class="title">Pending <span class="ghost-word">Amendments</span></h1>
+      <p class="subtitle">
+        Rule modifications proposed by managers, collected from the league doc
+        and waiting on a vote.
+      </p>
+      <p class="tagline"><a class="hero-link" href="/">← Current bylaws</a></p>
+    </header>
+
+    <div class="layout">
+      <nav class="toc" aria-label="Proposal categories">
+        <ol>
+          <li>
+            <a href="#roster"><span class="roman">I.</span>Roster &amp; Taxi</a>
+          </li>
+          <li>
+            <a href="#draft"
+              ><span class="roman">II.</span>Draft &amp; Tanking</a
+            >
+          </li>
+          <li>
+            <a href="#scoring"><span class="roman">III.</span>Scoring</a>
+          </li>
+          <li>
+            <a href="#schedule"
+              ><span class="roman">IV.</span>Playoffs &amp; Schedule</a
+            >
+          </li>
+          <li>
+            <a href="#business"
+              ><span class="roman">V.</span>League Business</a
+            >
+          </li>
+        </ol>
+      </nav>
+
+      <main>
+        <div class="callout intro">
+          <span class="label">How this works</span>
+          Every item below came out of the shared doc. None of it has been
+          ratified. Each one gets its own yes/no at the league vote, and
+          anything that passes gets folded into the bylaws.
+        </div>
+
+        <div class="summary" role="group" aria-label="Proposal counts">
+          <div class="tally accent">
+            <span class="count" data-count="proposals">10</span>
+            <span class="name">Proposals</span>
+          </div>
+          <div class="tally">
+            <span class="count" data-count="categories">5</span>
+            <span class="name">Categories</span>
+          </div>
+          <div class="tally">
+            <span class="count">0</span>
+            <span class="name">Ratified</span>
+          </div>
+        </div>
+
+        <section class="rule" id="roster" aria-labelledby="roster-h">
+          <div class="rule-head">
+            <span class="rule-num">CATEGORY I</span>
+            <h2 id="roster-h">Roster &amp; Taxi</h2>
+          </div>
+
+          <article class="proposal">
+            <div class="proposal-head">
+              <span class="proposal-num">01</span>
+              <h3>Expand bench and taxi capacity</h3>
+              <span class="pending">Pending vote</span>
+            </div>
+            <p>
+              Add one or two bench spots plus another taxi spot, so rosters can
+              absorb injuries and hold more young players.
+            </p>
+            <div class="compare">
+              <div class="side now">
+                <span class="label">Current</span>
+                <p>6 bench · 4 taxi</p>
+              </div>
+              <div class="side next">
+                <span class="label">Proposed</span>
+                <p>7–8 bench · 5 taxi</p>
+              </div>
+            </div>
+            <p class="note">
+              The exact number of bench spots (one more or two) still needs to
+              be pinned down before it goes to a vote.
+            </p>
+            <p class="amends">Amends <a href="/#roster">Article III</a></p>
+          </article>
+
+          <article class="proposal">
+            <div class="proposal-head">
+              <span class="proposal-num">02</span>
+              <h3>Mid-season taxi window</h3>
+              <span class="pending">Pending vote</span>
+            </div>
+            <p>
+              Open a short window during the season to move eligible players in
+              and out of the taxi squad, so an injury doesn't strand a roster
+              spot for the rest of the year.
+            </p>
+            <div class="compare">
+              <div class="side now">
+                <span class="label">Current</span>
+                <p>Taxi assignments lock before the season and stay locked</p>
+              </div>
+              <div class="side next">
+                <span class="label">Proposed</span>
+                <p>One limited in-season window to reassign taxi players</p>
+              </div>
+            </div>
+            <p class="amends">Amends <a href="/#roster">Article III</a></p>
+          </article>
+        </section>
+
+        <section class="rule" id="draft" aria-labelledby="draft-h">
+          <div class="rule-head">
+            <span class="rule-num">CATEGORY II</span>
+            <h2 id="draft-h">Draft &amp; Anti-Tanking</h2>
+          </div>
+
+          <article class="proposal">
+            <div class="proposal-head">
+              <span class="proposal-num">03</span>
+              <h3>Seed the draft on max possible points</h3>
+              <span class="pending">Pending vote</span>
+            </div>
+            <p>
+              Base draft seeding on each team's maximum possible points (the
+              best game each starter could have locked) instead of the points
+              actually locked in. Deliberately locking bad games late in the
+              year then does nothing for your pick.
+            </p>
+            <div class="compare">
+              <div class="side now">
+                <span class="label">Current</span>
+                <p>Seeding follows total points locked in</p>
+              </div>
+              <div class="side next">
+                <span class="label">Proposed</span>
+                <p>Seeding follows max possible points</p>
+              </div>
+            </div>
+            <p class="note">
+              Filed under "I promise this happened."
+            </p>
+            <p class="amends">Amends <a href="/#draft">Article II</a></p>
+          </article>
+
+          <article class="proposal">
+            <div class="proposal-head">
+              <span class="proposal-num">04</span>
+              <h3>Regular-season record sets draft order</h3>
+              <span class="pending">Pending vote</span>
+            </div>
+            <p>
+              Draft order should come off the regular-season standings alone,
+              with playoff results excluded. As it stands, a team knocked out
+              early has every reason to stop trying.
+            </p>
+            <div class="compare">
+              <div class="side now">
+                <span class="label">Current</span>
+                <p>Final standings, with playoff finishes factored in</p>
+              </div>
+              <div class="side next">
+                <span class="label">Proposed</span>
+                <p>Regular-season record only</p>
+              </div>
+            </div>
+            <p class="note">
+              This one reads more like a clarification than a change.
+              <a href="/#draft">Article II</a> already says "prior regular
+              season." Worth confirming what Sleeper is actually sorting on
+              before we spend a vote on it.
+            </p>
+            <p class="amends">Amends <a href="/#draft">Article II</a></p>
+          </article>
+        </section>
+
+        <section class="rule" id="scoring" aria-labelledby="scoring-h">
+          <div class="rule-head">
+            <span class="rule-num">CATEGORY III</span>
+            <h2 id="scoring-h">Scoring</h2>
+          </div>
+
+          <article class="proposal">
+            <div class="proposal-head">
+              <span class="proposal-num">05</span>
+              <h3>Raise the 40- and 50-point bonuses</h3>
+              <span class="pending">Pending vote</span>
+            </div>
+            <p>
+              Bump both scoring milestones from +2 to +2.5, so a 50-point night
+              is worth 5 bonus points instead of 4.
+            </p>
+            <div class="compare">
+              <div class="side now">
+                <span class="label">Current</span>
+                <div class="scoring">
+                  <div class="stat pos">
+                    <span class="name">40+ Points</span
+                    ><span class="val">+2</span>
+                  </div>
+                  <div class="stat pos">
+                    <span class="name">50+ Points</span
+                    ><span class="val">+2</span>
+                  </div>
+                </div>
+              </div>
+              <div class="side next">
+                <span class="label">Proposed</span>
+                <div class="scoring">
+                  <div class="stat pos">
+                    <span class="name">40+ Points</span
+                    ><span class="val">+2.5</span>
+                  </div>
+                  <div class="stat pos">
+                    <span class="name">50+ Points</span
+                    ><span class="val">+2.5</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="amends">Amends <a href="/#points">Article V</a></p>
+          </article>
+        </section>
+
+        <section class="rule" id="schedule" aria-labelledby="schedule-h">
+          <div class="rule-head">
+            <span class="rule-num">CATEGORY IV</span>
+            <h2 id="schedule-h">Playoffs &amp; Schedule</h2>
+          </div>
+
+          <article class="proposal">
+            <div class="proposal-head">
+              <span class="proposal-num">06</span>
+              <h3>Cut the playoff field to six</h3>
+              <span class="pending">Pending vote</span>
+            </div>
+            <p>
+              Six teams make the playoffs instead of eight, so a postseason
+              berth actually has to be earned.
+            </p>
+            <div class="compare">
+              <div class="side now">
+                <span class="label">Current</span>
+                <p>Top 8 overall, no divisions</p>
+              </div>
+              <div class="side next">
+                <span class="label">Proposed</span>
+                <p>Top 6 overall</p>
+              </div>
+            </div>
+            <p class="note">
+              A six-team bracket needs first-round byes for the top two seeds.
+              That should be settled in the same vote, and it ties directly into
+              proposal 07.
+            </p>
+            <p class="amends">Amends <a href="/#playoffs">Article VIII</a></p>
+          </article>
+
+          <article class="proposal">
+            <div class="proposal-head">
+              <span class="proposal-num">07</span>
+              <h3>Rework the schedule</h3>
+              <span class="pending">Pending vote</span>
+            </div>
+            <p>
+              Extend the regular season by a week and rebuild the playoff
+              calendar so no round lands on a short week.
+            </p>
+            <div class="compare">
+              <div class="side now">
+                <span class="label">Current</span>
+                <p>Regular season runs into a shortened playoff week</p>
+              </div>
+              <div class="side next">
+                <span class="label">Proposed</span>
+                <p>One extra regular-season week, full-length playoff rounds</p>
+              </div>
+            </div>
+            <p class="note">
+              The trade deadline sits one week before playoffs begin, so it
+              moves with the calendar automatically.
+            </p>
+            <p class="amends">
+              Amends <a href="/#playoffs">Article VIII</a> and
+              <a href="/#deadline">Article VII</a>
+            </p>
+          </article>
+        </section>
+
+        <section class="rule" id="business" aria-labelledby="business-h">
+          <div class="rule-head">
+            <span class="rule-num">CATEGORY V</span>
+            <h2 id="business-h">League Business</h2>
+          </div>
+
+          <article class="proposal">
+            <div class="proposal-head">
+              <span class="proposal-num">08</span>
+              <h3>Raise the buy-in to $50</h3>
+              <span class="pending">Pending vote</span>
+            </div>
+            <p>
+              Move the annual buy-in from $10 to $50 to put real money behind
+              the season.
+            </p>
+            <div class="compare">
+              <div class="side now">
+                <span class="label">Current</span>
+                <p>$10 per year · $20 per two-year cycle</p>
+              </div>
+              <div class="side next">
+                <span class="label">Proposed</span>
+                <p>$50 per year</p>
+              </div>
+            </div>
+            <p class="note">
+              Two knock-on effects to decide: whether the two-year prepay stays
+              (that's $100 up front), and whether the traded-pick obligation
+              scales with it. At $50 a year, leaving with two future firsts
+              traded away costs $100 on the way out.
+            </p>
+            <p class="amends">Amends <a href="/#buyin">Article I</a></p>
+          </article>
+
+          <article class="proposal">
+            <div class="proposal-head">
+              <span class="proposal-num">09</span>
+              <h3>Waivers clear more than once a week</h3>
+              <span class="pending">Pending vote</span>
+            </div>
+            <p>
+              Add a second weekly waiver run so managers can react to injuries
+              and rest days instead of eating a zero.
+            </p>
+            <div class="compare">
+              <div class="side now">
+                <span class="label">Current</span>
+                <p>FAAB clears every Tuesday</p>
+              </div>
+              <div class="side next">
+                <span class="label">Proposed</span>
+                <p>Two clearing days per week, at minimum</p>
+              </div>
+            </div>
+            <p class="note">
+              The doc says "biweekly," which cuts both ways: twice a week or
+              every other week. The stated reason (emergency injury and rest-day
+              pickups) only works as twice a week, so that's how it's written
+              here. Worth confirming with whoever proposed it.
+            </p>
+            <p class="amends">Amends <a href="/#waivers">Article VI</a></p>
+          </article>
+
+          <article class="proposal">
+            <div class="proposal-head">
+              <span class="proposal-num">10</span>
+              <h3>Last-place punishment</h3>
+              <span class="pending">Pending vote</span>
+            </div>
+            <p>
+              Introduce a punishment for finishing last, or for putting up the
+              lowest point total on the season.
+            </p>
+            <div class="compare">
+              <div class="side now">
+                <span class="label">Current</span>
+                <p>No consequence beyond the first pick</p>
+              </div>
+              <div class="side next">
+                <span class="label">Proposed</span>
+                <p>A punishment, to be chosen by a separate vote</p>
+              </div>
+            </div>
+            <p class="note">
+              Two votes, really: whether we do this at all, and then what the
+              punishment is. Also needs a trigger, since worst record and
+              lowest total points aren't always the same team.
+            </p>
+            <p class="amends">New article</p>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      Proposals only. No amendment takes effect until it carries a league vote.
+    </footer>
+  </body>
+</html>
