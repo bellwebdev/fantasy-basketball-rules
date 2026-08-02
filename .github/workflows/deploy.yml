@@ -12,6 +12,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # Rebuilds data/players.json from Sleeper so the deployed copy reflects
+      # current rosters rather than whatever was committed.
+      - name: Build trimmed player map
+        run: node tools/build-players.mjs
+
       - name: Connect to Tailscale
         uses: tailscale/github-action@v3
         with:
@@ -32,4 +42,5 @@ jobs:
           rsync -avz --delete --omit-dir-times \
             --exclude='.git' \
             --exclude='.github' \
+            --exclude='tools' \
             ./ "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:"

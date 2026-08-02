@@ -17,6 +17,52 @@
   }
 }
 
+/* ---------- Headline tallies ---------- */
+
+.summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-block-end: 2.5rem;
+}
+
+.tally {
+  flex: 1 1 7rem;
+  min-inline-size: 0;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding-block: 0.85rem;
+  padding-inline: 0.6rem;
+  text-align: center;
+  font-family: var(--font-ui);
+
+  .count {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+  }
+
+  .name {
+    display: block;
+    font-size: var(--text-micro);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ghost);
+    margin-block-start: 0.2rem;
+  }
+
+  &.accent {
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+
+    .count {
+      color: var(--accent);
+    }
+  }
+}
+
 .example {
   border-inline-start: 3px solid var(--accent);
   padding-inline-start: 1rem;

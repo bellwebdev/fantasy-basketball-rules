@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>League Dashboard | Sam Hinkie's Ghost</title>
+    <meta
+      name="description"
+      content="Live standings, rosters, draft results, and transactions for the Sam Hinkie's Ghost dynasty league."
+    />
+    <link rel="preconnect" href="https://api.sleeper.app" crossorigin />
+    <link rel="preconnect" href="https://sleepercdn.com" crossorigin />
+    <link rel="preload" href="../data/players.json" as="fetch" />
+    <link rel="stylesheet" href="../styles/tokens.css" />
+    <link rel="stylesheet" href="../styles/base.css" />
+    <link rel="stylesheet" href="../styles/layout.css" />
+    <link rel="stylesheet" href="../styles/components.css" />
+    <link rel="stylesheet" href="../styles/dashboard.css" />
+    <script type="module" src="../scripts/dashboard.js"></script>
+  </head>
+  <body>
+    <header class="hero">
+      <p class="eyebrow label">Pulled live from Sleeper</p>
+      <h1 class="title">League <span class="ghost-word">Dashboard</span></h1>
+      <p class="subtitle" data-league-status>Loading league data.</p>
+      <p class="tagline">
+        <a class="hero-link" href="/">← Current bylaws</a>
+        <span class="hero-sep" aria-hidden="true">·</span>
+        <a class="hero-link" href="/votes">Pending votes</a>
+      </p>
+    </header>
+
+    <div class="layout">
+      <nav class="toc" aria-label="Dashboard sections">
+        <ol>
+          <li>
+            <a href="#standings"><span class="roman">I.</span>Standings</a>
+          </li>
+          <li>
+            <a href="#rosters"><span class="roman">II.</span>Rosters</a>
+          </li>
+          <li>
+            <a href="#draft"><span class="roman">III.</span>Draft Board</a>
+          </li>
+          <li>
+            <a href="#transactions"
+              ><span class="roman">IV.</span>Transactions</a
+            >
+          </li>
+        </ol>
+      </nav>
+
+      <main>
+        <div class="summary">
+          <div class="tally accent">
+            <span class="count" data-count="season">&middot;</span>
+            <span class="name">Season</span>
+          </div>
+          <div class="tally">
+            <span class="count" data-count="teams">&middot;</span>
+            <span class="name">Teams</span>
+          </div>
+          <div class="tally">
+            <span class="count" data-count="picks">&middot;</span>
+            <span class="name">Picks Made</span>
+          </div>
+          <div class="tally">
+            <span class="count" data-count="moves">&middot;</span>
+            <span class="name">Moves</span>
+          </div>
+        </div>
+
+        <article class="rule" id="standings">
+          <div class="rule-head">
+            <span class="rule-num">SECTION I</span>
+            <h2>Standings</h2>
+          </div>
+          <div data-slot>
+            <p class="skeleton-note soft">Loading standings.</p>
+          </div>
+        </article>
+
+        <article class="rule" id="rosters">
+          <div class="rule-head">
+            <span class="rule-num">SECTION II</span>
+            <h2>Rosters &amp; Taxi Squads</h2>
+          </div>
+          <p class="soft">
+            Slot counts follow Article III: seven starters, six bench, four
+            taxi, two IR.
+          </p>
+          <div data-slot>
+            <p class="skeleton-note soft">Loading rosters.</p>
+          </div>
+        </article>
+
+        <article class="rule" id="draft">
+          <div class="rule-head">
+            <span class="rule-num">SECTION III</span>
+            <h2>Draft Board</h2>
+          </div>
+          <div data-slot>
+            <p class="skeleton-note soft">Loading draft results.</p>
+          </div>
+        </article>
+
+        <article class="rule" id="transactions">
+          <div class="rule-head">
+            <span class="rule-num">SECTION IV</span>
+            <h2>Transactions</h2>
+          </div>
+          <p class="soft">
+            Adds, drops, and trades across the season. FAAB bids show the
+            winning amount against each manager's $100 from Article VI.
+          </p>
+          <div data-slot>
+            <p class="skeleton-note soft">Loading transactions.</p>
+          </div>
+        </article>
+      </main>
+    </div>
+
+    <footer>
+      Live data from the Sleeper API. Bylaws subject to amendment by vote.
+    </footer>
+  </body>
+</html>

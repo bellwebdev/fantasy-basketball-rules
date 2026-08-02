@@ -1,0 +1,432 @@
+/* League dashboard: standings table, roster cards, draft board, move feed.
+   Flexbox only; components size against the `content` container on <main>. */
+
+.skeleton-note {
+  font-family: var(--font-ui);
+  font-size: var(--text-small);
+  color: var(--ink-soft);
+}
+
+.callout.error {
+  border-color: color-mix(in srgb, var(--accent) 50%, var(--line));
+
+  .label {
+    color: var(--accent);
+  }
+}
+
+/* ---------- Standings ---------- */
+
+.table-scroll {
+  overflow-x: auto;
+  margin-block: 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--bg-raised);
+  box-shadow: 0 1px 2px var(--shadow);
+}
+
+.standings {
+  inline-size: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+
+  th,
+  td {
+    text-align: start;
+    padding-block: 0.7rem;
+    padding-inline: 0.9rem;
+    white-space: nowrap;
+  }
+
+  thead th {
+    font-size: var(--text-micro);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ghost);
+    font-weight: 700;
+    border-block-end: 1px solid var(--line);
+  }
+
+  tbody tr {
+    border-block-start: 1px solid
+      color-mix(in srgb, var(--line) 60%, transparent);
+
+    &:first-child {
+      border-block-start: none;
+    }
+
+    &:hover {
+      background: color-mix(in srgb, var(--ghost) 7%, transparent);
+    }
+  }
+
+  .num {
+    text-align: end;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .soft {
+    color: var(--ink-soft);
+  }
+
+  .rank {
+    color: var(--ghost);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .record {
+    font-weight: 700;
+  }
+
+  /* Team name over manager handle, so the column stays one line tall. */
+  .team {
+    white-space: normal;
+
+    .team-name {
+      display: block;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .manager {
+      display: block;
+      font-size: var(--text-micro);
+      color: var(--ink-soft);
+    }
+  }
+
+  .in-playoffs .rank {
+    color: var(--accent);
+  }
+
+  /* Article VIII: the line below the last playoff seed. */
+  .cutoff {
+    border-block-end: 2px solid
+      color-mix(in srgb, var(--accent) 55%, transparent);
+  }
+}
+
+.legend {
+  font-family: var(--font-ui);
+  font-size: var(--text-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ghost);
+}
+
+/* ---------- Roster cards ---------- */
+
+.team-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-block-start: 1.4rem;
+}
+
+.team-card {
+  flex: 1 1 100%;
+  min-inline-size: 0;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding-block: 1.1rem;
+  padding-inline: 1.2rem;
+  box-shadow: 0 1px 2px var(--shadow);
+
+  @container content (min-width: 34rem) {
+    flex: 1 1 calc(50% - 0.45rem);
+  }
+}
+
+.team-head {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding-block-end: 0.8rem;
+  border-block-end: 1px solid var(--line);
+
+  .avatar {
+    flex: 0 0 auto;
+    inline-size: 2.5rem;
+    block-size: 2.5rem;
+    border-radius: var(--radius-pill);
+    object-fit: cover;
+    background: var(--ghost-soft);
+  }
+
+  .who {
+    flex: 1 1 auto;
+    min-inline-size: 0;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+  }
+
+  .manager {
+    margin: 0;
+    font-family: var(--font-ui);
+    font-size: var(--text-micro);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+  }
+
+  .faab {
+    flex: 0 0 auto;
+    margin: 0;
+    font-family: var(--font-ui);
+    font-size: var(--text-small);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    color: var(--ghost);
+  }
+}
+
+.group {
+  margin-block-start: 0.9rem;
+}
+
+.group-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin: 0 0 0.4rem;
+
+  .label {
+    font-size: var(--text-micro);
+    color: var(--accent);
+  }
+
+  .fill {
+    font-family: var(--font-ui);
+    font-size: var(--text-micro);
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-soft);
+
+    /* Carrying more players than the slot allows; legal until tip-off. */
+    &.over {
+      color: var(--accent);
+      font-weight: 800;
+    }
+  }
+}
+
+.players {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.player {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  font-family: var(--font-ui);
+  font-size: var(--text-small);
+  padding-block: 0.2rem;
+
+  .pos {
+    flex: 0 0 2.4rem;
+    font-size: var(--text-micro);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--ghost);
+  }
+
+  .who {
+    flex: 1 1 auto;
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .nba {
+    flex: 0 0 auto;
+    font-size: var(--text-micro);
+    color: var(--ink-soft);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ---------- Draft board ---------- */
+
+.round {
+  margin-block-start: 1.6rem;
+}
+
+.round-head {
+  font-family: var(--font-ui);
+  font-size: var(--text-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  font-weight: 800;
+  color: var(--accent);
+  padding-block-end: 0.5rem;
+  border-block-end: 1px solid var(--line);
+}
+
+.picks {
+  list-style: none;
+  margin: 0.7rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pick {
+  flex: 1 1 100%;
+  min-inline-size: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.1rem 0.6rem;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding-block: 0.6rem;
+  padding-inline: 0.75rem;
+  font-family: var(--font-ui);
+
+  @container content (min-width: 30rem) {
+    flex: 1 1 calc(50% - 0.25rem);
+  }
+
+  @container content (min-width: 46rem) {
+    flex: 1 1 calc(33.333% - 0.34rem);
+  }
+
+  .pick-no {
+    flex: 0 0 1.6rem;
+    font-size: var(--text-small);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    color: var(--accent);
+  }
+
+  .pick-player {
+    flex: 1 1 auto;
+    min-inline-size: 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+  }
+
+  .pick-meta {
+    flex: 0 0 auto;
+    font-size: var(--text-micro);
+    color: var(--ghost);
+  }
+
+  .pick-by {
+    flex: 1 1 100%;
+    margin-inline-start: 2.2rem;
+    font-size: var(--text-micro);
+    color: var(--ink-soft);
+    overflow-wrap: anywhere;
+  }
+}
+
+/* ---------- Transaction feed ---------- */
+
+.feed {
+  list-style: none;
+  margin: 1.3rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.move {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding-block: 0.8rem;
+  padding-inline: 1rem;
+  box-shadow: 0 1px 2px var(--shadow);
+
+  /* Trades are the interesting ones; give them the accent edge. */
+  &.trade {
+    border-inline-start: 3px solid var(--accent);
+  }
+}
+
+.move-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin: 0 0 0.5rem;
+  font-family: var(--font-ui);
+
+  .kind {
+    font-size: var(--text-micro);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    color: var(--ghost);
+  }
+
+  .bid {
+    font-size: var(--text-micro);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    color: var(--accent-ink);
+    background: var(--accent);
+    border-radius: var(--radius-pill);
+    padding-block: 0.15rem;
+    padding-inline: 0.5rem;
+  }
+
+  time {
+    margin-inline-start: auto;
+    font-size: var(--text-micro);
+    color: var(--ink-soft);
+  }
+}
+
+.swaps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-family: var(--font-ui);
+  font-size: var(--text-small);
+
+  li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    overflow-wrap: anywhere;
+  }
+
+  .arrow {
+    flex: 0 0 0.9rem;
+    font-weight: 800;
+  }
+
+  .add .arrow {
+    color: var(--ghost);
+  }
+
+  .drop {
+    color: var(--ink-soft);
+  }
+
+  .to {
+    color: var(--ink-soft);
+    font-size: var(--text-micro);
+  }
+}

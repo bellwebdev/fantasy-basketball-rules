@@ -57,6 +57,11 @@
     color: var(--ghost);
   }
 
+  .hero-sep {
+    color: color-mix(in srgb, currentColor 45%, transparent);
+    margin-inline: 0.55rem;
+  }
+
   .hero-link {
     text-decoration: none;
     border-block-end: 1px solid
